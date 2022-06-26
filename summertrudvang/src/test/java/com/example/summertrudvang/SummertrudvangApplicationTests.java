@@ -1,10 +1,10 @@
-package com.trudvang.summer;
+package com.example.summertrudvang;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class SummerApplicationTests {
+class SummertrudvangApplicationTests {
 
 	@Test
 	void contextLoads() {
