@@ -20,10 +20,8 @@ import static com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility.ANY;
 import static com.fasterxml.jackson.annotation.PropertyAccessor.FIELD;
 
 @SpringBootApplication
-public class SummertrudvangApplication implements CommandLineRunner {
+public class SummertrudvangApplication {
 
-	@Value("${ec.importfile}")
-	private String importFile;
 
 	@Autowired
 	private RuleBookService ruleBookService;
@@ -35,11 +33,11 @@ public class SummertrudvangApplication implements CommandLineRunner {
 		SpringApplication.run(SummertrudvangApplication.class, args);
 	}
 
-	@Override
+	/*@Override
 	public void run(String... args) throws IOException{
 		createRuleBooks();
 		createRules(importFile);
-	}
+	} */
 
 	private void createRuleBooks(){
 		ruleBookService.createRuleBook("DoD", "Drakar och Demoner");
@@ -60,6 +58,7 @@ public class SummertrudvangApplication implements CommandLineRunner {
 						importedRule.getRuleCategory(),
 						importedRule.getGame()));
 	}
+
 
 	private static class RuleFromFile{
 		// Fields
