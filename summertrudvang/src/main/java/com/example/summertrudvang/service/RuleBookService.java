@@ -41,4 +41,9 @@ public class RuleBookService {
         return ruleBookRepository.count();
     }
 
+    public RuleBook findByBookName(String bookName){
+        return ruleBookRepository.findById(bookName).orElseThrow(() ->
+                new RuntimeException("Rule Book does not exist" + bookName));
+    }
+
 }

@@ -39,6 +39,17 @@ public class RuleService {
     }
 
     /**
+     * Return a rule with rule name as key
+     * @param ruleName
+     */
+
+    public Rule getRule(String ruleName){
+        Rule rule = ruleRepository.findById(ruleName).orElseThrow(() ->
+            new RuntimeException("Rule does not exist with the name of "+ruleName));
+        return rule;
+    }
+
+    /**
      * Calculate the number of rules in the database
      * @return
      */

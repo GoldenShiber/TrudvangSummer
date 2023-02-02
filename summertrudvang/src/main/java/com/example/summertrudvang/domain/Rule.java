@@ -3,14 +3,14 @@ package com.example.summertrudvang.domain;
 import javax.persistence.*;
 import java.util.Objects;
 
+/*
+    This have about 5 fields which needs to be filled, would be good to use a builder pattern in this case.
+ */
 @Entity
 public class Rule {
 
-    @Id
-    @GeneratedValue
-    private Long id;
 
-    @Column
+    @Id
     private String ruleName;
 
     @Column(length= 2000 )
@@ -39,9 +39,6 @@ public class Rule {
 
     }
 
-    public Long getId() {
-        return id;
-    }
 
     public void setRuleName(String ruleName){
         this.ruleName = ruleName;
@@ -86,7 +83,6 @@ public class Rule {
     @Override
     public String toString(){
         return "Rule {" +
-                "id=" + id +
                 "ruleName=" + ruleName +'\'' +
                 "description=" + description +'\'' +
                 "rulebook=" + ruleBook +'\'' +
@@ -99,8 +95,7 @@ public class Rule {
         if (this == o) { return true; }
         if (this == null || getClass() != o.getClass()){ return false; }
         Rule rule = (Rule) o;
-        return Objects.equals(id, rule.id) &&
-                Objects.equals(ruleName, rule.ruleName) &&
+        return Objects.equals(ruleName, rule.ruleName) &&
                 Objects.equals(description, rule.description) &&
                 Objects.equals(ruleCategory, rule.ruleCategory) &&
                 Objects.equals(ruleBook, rule.ruleBook) &&
@@ -109,6 +104,6 @@ public class Rule {
 
     @Override
     public int hashCode(){
-        return Objects.hash(id, ruleName, description, ruleBook, ruleCategory, game);
+        return Objects.hash(ruleName, description, ruleBook, ruleCategory, game);
     }
 }
